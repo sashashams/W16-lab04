@@ -32,3 +32,4 @@ public class SimpleGui1 {
 	frame. setVisible(true) ;
     }
 }
+ 
