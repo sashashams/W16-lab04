@@ -14,7 +14,7 @@ import java.awt.geom.Line2D;
 public class PineTree  extends Arrow implements Shape
 {
     /**
-     * Constructor for objects of class CoffeeCup
+     * Constructor for objects of class PineTree
      */
     public PineTree(double x, double y, double topWidth, double height)
     {

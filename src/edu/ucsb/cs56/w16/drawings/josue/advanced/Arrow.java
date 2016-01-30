@@ -25,7 +25,7 @@ public class Arrow extends GeneralPathWrapper implements Shape
        
        @param x x coord of lower left corner of house
        @param y y coord of lower left corner of house
-       @param width width of the house
+       @param width width of the arrow
        @param height of the arrow (including the tip)
     */
     public Arrow(double x, double y, double headWidth, double height)
