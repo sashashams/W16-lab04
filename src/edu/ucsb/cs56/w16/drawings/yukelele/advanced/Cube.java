@@ -24,9 +24,9 @@ public class Cube extends GeneralPathWrapper implements Shape
     /**
        Constructor 
 
-       @param x :  x coord of the center corner of the cube (in the user's perspective)
-       @parem y : y coord of the center corner of the cube (in the user's perspective)
-       @parem side : side of each face of the cube
+       @param x x coord of the center corner of the cube (in user's perspective)
+       @param y y coord of the center corner of the cube (in user's perspective)
+       @param side the length of each side of the Cube
        
     */
 

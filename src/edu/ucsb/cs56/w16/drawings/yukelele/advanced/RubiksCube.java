@@ -22,7 +22,10 @@ public class RubiksCube extends Cube implements Shape
 {
     /**
        Constructor for objects of class RubiksCube
-    */
+       @param x x coordinate at the center corner of the Rubik's Cube
+       @param y y coordinate at the center corner of the Rubik's Cube
+       @param side the length of each side of the cube
+*/
     
     public RubiksCube(double x, double y, double side)
     {
