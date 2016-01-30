@@ -30,7 +30,15 @@ public class AllMyDrawings
     public static void drawPicture1(Graphics2D g2) {
 
 	SoccerField SF1 = new SoccerField(50,50,200);
-	g2.setColor(Color.BLACK); g2.draw(SF1);
+	g2.setColor(Color.GREEN); g2.draw(SF1);
+
+	Stroke Thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);
+	
+	Stroke orig = g2.getStroke();
+	
+	g2.setStroke(Thick);
+	g2.setColor(Color.BLACK); 
+	g2.drawString("A simple Soccer Field by Matin Akhamzadeh", 20,20);
 	
     }
 
@@ -60,7 +68,6 @@ public class AllMyDrawings
 	Stroke Thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);
 	
 	Stroke orig = g2.getStroke();
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(Thick);
 	g2.setColor(Color.BLACK); 
@@ -68,16 +75,31 @@ public class AllMyDrawings
 	    
 
   
-    /** Draw a different picture with a few houses and coffee cups
-     */
+ 
 	    }
     public static void drawPicture3(Graphics2D g2) {
-	Field f1 = new Field(50,100, 120);
-	SoccerField s1 = new SoccerField(50,100,120);
-
+	Field f1 = new Field(100,100, 120);
+	SoccerField s1 = new SoccerField(100,100,120);
+	SoccerField s2 = new SoccerField(100,100,120);
+	
 	g2.setColor(Color.BLUE); g2.draw(f1);
 	g2.setColor(Color.GREEN); g2.draw(s1);
-	
+	g2.setColor(Color.RED); g2.draw(s2);
+
+	Shape f2 = ShapeTransforms.rotatedCopyOf(f1,Math.PI/2.0);
+	g2.setColor(Color.BLACK); g2.draw(f2);
+
+	Shape s3 = ShapeTransforms.rotatedCopyOf(s2,Math.PI/4.0);
+	g2.setColor(Color.RED); g2.draw(s3);
+
+	Shape s4 = ShapeTransforms.rotatedCopyOf(s1,3*Math.PI/4.0);
+	g2.setColor(Color.BLUE); g2.draw(s4);
+
+	Stroke Thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);
+	Stroke orig = g2.getStroke();
+	g2.setStroke(Thick);
+	g2.setColor(Color.BLACK); 
+	g2.drawString("Intersecting Fields by Matin Akhamzadeh", 20,20);
        
     }
     
