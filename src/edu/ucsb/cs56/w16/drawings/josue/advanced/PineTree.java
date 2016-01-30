@@ -57,12 +57,6 @@ public class PineTree  extends Arrow implements Shape
 			       x + topWidth, y);
 	
 			       
-			       
-			       
-			       
-			       
-
-
 
 
 	// add extra layers of leaves to the tree top

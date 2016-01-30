@@ -23,18 +23,18 @@ public class AllMyDrawings
     
     public static void drawPicture1(Graphics2D g2) {
 	
-	Arrow arr1 = new Arrow(100,250,50,75);
-	g2.setColor(Color.CYAN); g2.draw(arr1);
+	Arrow arr1 = new Arrow(150,150,50,75);
+	g2.setColor(Color.MAGENTA); g2.draw(arr1);
 	
 	// Make a black arrow that's half the size, 
-	// and moved over 150 pixels in x direction
+	// and moved over 250 pixels in x direction
 	
 	Shape arr2 = ShapeTransforms.scaledCopyOfLL(arr1,0.5,0.5);
-	arr2 = ShapeTransforms.translatedCopyOf(arr2,150,0);
+	arr2 = ShapeTransforms.translatedCopyOf(arr2,250,0);
 	g2.setColor(Color.BLACK); g2.draw(arr2);
 	
 	// Here's an arrow that's 4x as big (2x the original)
-	// and moved over 150 more pixels to right.
+	// and moved over 150 more pixels to right and is green.
 	arr2 = ShapeTransforms.scaledCopyOfLL(arr2,4,4);
 	arr2 = ShapeTransforms.translatedCopyOf(arr2,150,0);
 	
@@ -51,20 +51,21 @@ public class AllMyDrawings
 	g2.draw(arr2); 
 	
 	
-	// Draw two Pine Tree trees
+	// Draw three Pine Trees
 	
-	PineTree pn1 = new PineTree(50,350,40,75);
-	PineTree pn2 = new PineTree(200,350,200,100);
-	
+	PineTree pn1 = new PineTree(50,150,40,75);
+	PineTree pn2 = new PineTree(200,150,200,75);
+	PineTree pn3 = new PineTree(420,150,130,75);	
 	g2.draw(pn1);
 	g2.setColor(new Color(0x8F00FF)); g2.draw(pn2);
+	g2.setColor(Color.GREEN); g2.draw(pn3);
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A few trees by Josue Montenegro", 20,20);
+	g2.drawString("A forrest of pine trees and arrows by Josue Montenegro", 20,20);
     }
     
     
@@ -72,31 +73,35 @@ public class AllMyDrawings
      */
     public static void drawPicture2(Graphics2D g2) {
 	
-	// Draw some coffee cups.
+	// Draw some arrows
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
+	Arrow medium = new Arrow(250,50,150,100);
+	Arrow smallCC = new Arrow(100,60,40,30);
+	Arrow tallSkinny = new Arrow(200,120,20,40);
+	Arrow shortFat = new Arrow(20,179,40,20);
 	
-	g2.setColor(Color.RED);     g2.draw(large);
+	g2.setColor(Color.RED);     g2.draw(medium);
 	g2.setColor(Color.GREEN);   g2.draw(smallCC);
-	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
+	g2.setColor(Color.YELLOW);    g2.draw(tallSkinny);
 	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
 	
-	House h1 = new House(100,250,50,75);
-	g2.setColor(Color.CYAN); g2.draw(h1);
+	PineTree pn1 = new PineTree(100,350,50,75);
+	g2.setColor(Color.BLUE);
+	Shape dead1 = ShapeTransforms.rotatedCopyOf(pn1, Math.PI/2.5);
+	g2.draw(dead1);
 	
-	// Make a black house that's half the size, 
+	// Make a black tree that's 0.7 the size, 
 	// and moved over 150 pixels in x direction
-	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	g2.setColor(Color.BLACK); g2.draw(h2);
+	Shape pn2 = ShapeTransforms.scaledCopyOfLL(pn1,0.5,0.5);
+	pn2 = ShapeTransforms.translatedCopyOf(pn2,150,0);
+	g2.setColor(Color.BLACK);
+	Shape dead2 = ShapeTransforms.rotatedCopyOf(pn2, Math.PI*2);
+	g2.draw(dead2);
 	
-	// Here's a house that's 4x as big (2x the original)
+	// Here's a tree that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
-	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
+	pn2 = ShapeTransforms.scaledCopyOfLL(pn2,4,4);
+	pn2 = ShapeTransforms.translatedCopyOf(pn2,130,0);
 	
 	// We'll draw this with a thicker stroke
 	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
@@ -108,26 +113,27 @@ public class AllMyDrawings
 	Stroke orig=g2.getStroke();
 	g2.setStroke(thick);
 	g2.setColor(new Color(0x002FA7)); 
-	g2.draw(h2); 
+	g2.draw(pn2); 
 	
-	// Draw two houses with Windows
+	// Draw two trees collapsing
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	PineTree pn3 = new PineTree(50,350,40,75);
+	PineTree pn4 = new PineTree(200,350,200,100);
 	
-	g2.draw(hw1);
-	g2.setColor(new Color(0x8F00FF)); 
+	Shape dead3 = ShapeTransforms.rotatedCopyOf(pn3, Math.PI*2.5);
+	g2.draw(dead3);
+	g2.setColor(Color.GREEN); 
 	
-	// Rotate the second house 45 degrees around its center.
-	Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4.0);
+	// Rotate the second tree 45 degrees around its center.
+	Shape dead4 = ShapeTransforms.rotatedCopyOf(pn4, Math.PI/4.0);
 	
-	g2.draw(hw3);
+	g2.draw(dead4);
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
+	g2.drawString("'The Trees die and their souls ascend' by Josue Montenegro", 20,20);
     }
     
     /** Draw a different picture with a few houses and coffee cups
@@ -137,16 +143,34 @@ public class AllMyDrawings
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("'The Tree of Life'- Josue Montenegro", 20,20);
+
+
+	PineTree pn2= new PineTree(200,150,200,80);
+	PineTree pn3 = new PineTree(135,240,330,70);
 	
 	
-	// Draw some coffee cups.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
+	g2.setColor(Color.RED);   g2.draw(pn2);
+	g2.setColor(Color.CYAN);  g2.draw(pn3);
 	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
+	PineTree pn4 = new PineTree(240,215,120,160);
+	
+	Stroke medium = new BasicStroke (2.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);
+	g2.setStroke(medium);
+	g2.setColor(Color.YELLOW);     g2.draw(pn4);
+	
+
+
+	
+	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
+	
+	g2.setStroke(thick);
+	
+	// Draw the tree of life.
+	PineTree pn1 = new PineTree(200,200,200,170);
+	g2.setColor(Color.GREEN);     g2.draw(pn1);
+
 	
     }       
 }
