@@ -1,10 +1,17 @@
 package edu.ucsb.cs56.w16.drawings.pconrad.advanced;
 
 import java.awt.Graphics2D;
+import java.awt.geom.Line2D;  // single lines
+import java.awt.geom.Ellipse2D;  // ellipses and circles
+import java.awt.geom.Rectangle2D; // for the bounding box
+import java.awt.Rectangle;  // squares and rectangles
+import java.awt.geom.GeneralPath; // combinations of lines and curves
+import java.awt.geom.AffineTransform; // translation, rotation, scale
 import java.awt.Shape; // general class for shapes
 import java.awt.Color; // class for Colors
 import java.awt.Stroke;
 import java.awt.BasicStroke;
+
 
 import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
@@ -13,22 +20,23 @@ import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
  * A class with static methods for drawing various pictures
  * 
  * @author Phill Conrad 
- * @version for UCSB CS56, W16 
+ * @version for CS10, lab06, Spring 2009
  */
+
 
 public class AllMyDrawings
 {
     /** Draw a picture with a few houses 
      */
-    
+
     public static void drawPicture1(Graphics2D g2) {
-	
+
 	House h1 = new House(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
 	// Make a black house that's half the size, 
 	// and moved over 150 pixels in x direction
-	
+
 	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
 	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
 	g2.setColor(Color.BLACK); g2.draw(h2);
@@ -64,12 +72,12 @@ public class AllMyDrawings
 	g2.setColor(Color.BLACK); 
 	g2.drawString("A few houses by Phill Conrad", 20,20);
     }
-    
-    
+
+
     /** Draw a picture with a few houses and coffee cups
      */
     public static void drawPicture2(Graphics2D g2) {
-	
+
 	// Draw some coffee cups.
 	
 	CoffeeCup large = new CoffeeCup(100,50,225,150);
@@ -115,10 +123,10 @@ public class AllMyDrawings
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); 
-	
+
 	// Rotate the second house 45 degrees around its center.
 	Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4.0);
-	
+
 	g2.draw(hw3);
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
@@ -127,24 +135,27 @@ public class AllMyDrawings
 	g2.setColor(Color.BLACK); 
 	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
     }
-    
+  
     /** Draw a different picture with a few houses and coffee cups
      */
-    
+
     public static void drawPicture3(Graphics2D g2) {
 	
 	// label the drawing
 	
 	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
-	
+
 	
 	// Draw some coffee cups.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
-	
-    }       
+       CoffeeCup large = new CoffeeCup(100,50,225,150);
+       CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
+       
+       g2.setColor(Color.RED);     g2.draw(large);
+       g2.setColor(Color.GREEN);   g2.draw(smallCC);
+       
+       
+    }
+    
+
 }
