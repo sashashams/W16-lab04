@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.w16.drawings.pconrad.advanced;
+package edu.ucsb.cs56.w16.drawings.tmliew.advanced;
 
 import javax.swing.JFrame;
 
@@ -28,10 +28,10 @@ public class MultiPictureViewer
        // Set the size to whatever size you like (width, height)
        // For projects you turn in, lets not get any bigger than 640,480
        
-       frame.setSize(1000,1000); // @@@ MODIFY THIS LINE IF YOU LIKE
+       frame.setSize(640,480); // @@@ MODIFY THIS LINE IF YOU LIKE
        
        // Set your own title
-       frame.setTitle("Matin's SoccerField"); 
+       frame.setTitle("Phill's First Drawing"); // @@@ MODIFY THIS LINE
        
        // Always do this so that the red X (or red circle) works
        // to close the window. 
